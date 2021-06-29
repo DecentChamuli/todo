@@ -1,49 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
     <title>TODOs List</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-    </nav>
     <div class="container my-4">
         <h2 class="text-center">TODOs List</h2>
         <div class="mb-3">
-          <label  for="title" class="form-label">Title</label>
-          <input required type="text" class="form-control" id="title" placeholder="Title of your TO-DO">
+          <label  for="title" class="form-label"><b>Title</b> <small>(Required)</small></label>
+          <input type="text" class="form-control clear-title" id="title" placeholder="Title of your TO-DO">
+          <p id="title-empty" style="color: red; display: none;">Title cannot be Empty!</p>
         </div>
         <div class="mb-3">
-          <label for="description" class="form-label">Description</label>
-          <textarea class="form-control" id="description" rows="3" placeholder="Description of your TO-DO"></textarea>
+          <label for="description" class="form-label"><b>Description</b> <small>(Optional)</small></label>
+          <textarea class="form-control clear-desc" id="description" rows="3" placeholder="Description of your TO-DO"></textarea>
         </div>
-        <button class="btn btn-outline-success" id="add-task" type="submit">Add Task</button>
-      <div id="items" class="mt-4">
+        <button class="btn btn-outline-success" id="add-task">Add Task</button>
+        <button class="btn btn-danger ms-2" id="clear-task" onclick="clearStorage()">Delete All Tasks</button>
+        <hr class="mt-4">
+      <br>
+      <h2 id="no-task" style="display: none;">No Task to Perform! <br>It's time to Enjoy</h2>
+      <div id="table-content" class="mt-4" style="display: none;">
         <h2>Your Tasks</h2>
-        <table class="table border table-content border-">
+        <table class="table border border-">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -53,18 +35,11 @@
             </tr>
           </thead>
           <tbody id="tablebody">
-            <!-- <tr>
-              <th scope="row">1</th>
-              <td>This is Title</td>
-              <td>This is written Title coz Coder</td>
-              <td><buttton class="btn btn-sm btn-outline-danger">Delete</buttton></td>
-            </tr> -->
+            <!-- At Here Data is fetched thorugh JavaScript -->
           </tbody>
         </table>
       </div>
-        
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="script.js"></script>
   </body>
